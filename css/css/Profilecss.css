@@ -1,0 +1,121 @@
+@charset "ISO-8859-1";
+ body {
+            margin-top: 20px;
+            background-color: #f2f6fc;
+            color: #69707a;
+        }
+
+        .addFieldSmall {
+        width: 100px; /* Adjust the width as needed */
+        }
+
+        .img-account-profile {
+    width: 10rem; /* Adjust width as needed */
+    height: 10rem; /* Adjust height as needed */
+    border-radius: 50%; /* Makes the image circular */
+    object-fit: cover; /* Ensure the image covers the entire circle */
+}
+
+
+        .rounded-circle {
+            border-radius: 50% !important;
+        }
+
+        .card {
+            box-shadow: 0 0.15rem 1.75rem 0 rgb(33 40 50 / 15%);
+        }
+
+        .card .card-header {
+            font-weight: 500;
+        }
+
+        .card-header:first-child {
+            border-radius: 0.35rem 0.35rem 0 0;
+        }
+
+        .card-header {
+            padding: 1rem 1.35rem;
+            margin-bottom: 0;
+            background-color: rgba(33, 40, 50, 0.03);
+            border-bottom: 1px solid rgba(33, 40, 50, 0.125);
+        }
+
+        .form-control,
+        .dataTable-input {
+            display: block;
+            width: 100%;
+            padding: 0.875rem 1.125rem;
+            font-size: 0.875rem;
+            font-weight: 400;
+            line-height: 1;
+            color: #69707a;
+            background-color: #fff;
+            background-clip: padding-box;
+            border: 1px solid #c5ccd6;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            border-radius: 0.35rem;
+            transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+        }
+
+        .nav-borders .nav-link.active {
+            color: #0061f2;
+            border-bottom-color: #0061f2;
+        }
+
+        .nav-borders .nav-link {
+            color: #69707a;
+            border-bottom-width: 0.125rem;
+            border-bottom-style: solid;
+            border-bottom-color: transparent;
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+            padding-left: 0;
+            padding-right: 0;
+            margin-left: 1rem;
+            margin-right: 1rem;
+        }
+
+        .wrapper > div {
+            border: 2px solid Chartreuse;
+            display: inline-block;
+            width: 251px;
+            height: 301px;
+            position: relative;
+        }
+
+        .wrapper {
+            margin: 0 auto;
+            width: 831px;
+        }
+
+        .wrapper > div > input[type="submit"] {
+            position: absolute;
+            bottom: 21px;
+            left: 26px;
+            display: block;
+            width: 201px;
+        }
+
+        .container {
+            display: flex;
+            border: 2px solid rgb(245, 242, 242);
+        }
+
+        .box {
+            flex: 1;
+            margin: 5px;
+            padding: 10px;
+            border-radius: 15px;
+            border: 2px solid #ccc;
+        }
+
+        .row {
+            border-bottom: 1px solid #ccc; /* Add border after every row */
+        }
+        
+        .addField {
+            margin-top: 10px; /* Add space above the button */
+            margin-bottom: 10px; /* Add space below the button */
+        }
