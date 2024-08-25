@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Archivo+Narrow&family=Julius+Sans+One&family=Open+Sans&family=Source+Sans+Pro&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/Resume_styles.css">
+  <script src="js/Resume_scripts.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+</head>
+
+<body>
+  <div class="form-style-5">
+    <h1>Resume Builder</h1>
+    <form id="resumeForm" class="" onsubmit="event.preventDefault(); generateResume();">
+      <label for="firstName"><br>First Name:</label><br>
+      <input type="text" id="firstName" name="firstName" required><br>
+      <label for="lastName">Last Name:</label><br>
+      <input type="text" id="lastName" name="lastName" required><br>
+      <label for="email">Email:</label><br>
+      <input type="email" id="email" name="email" required><br>
+      <label for="linkedin">LinkedIn URL:</label><br>
+      <input type="text" id="linkedin" name="linkedin"><br>
+      <label for="githuburl">GitHub URL:</label><br>
+      <input type="text" id="githuburl" name="githuburl"><br>
+      <label for="phoneNumber">Phone Number:</label><br>
+      <input type="number" id="phoneNumber" name="phoneNumber" required><br>
+      <label for="address">Address:</label><br>
+      <input type="text" id="address" name="address" required><br>
+      <label for="skills">Skills:</label><br>
+      <textarea id="skills" name="skills" placeholder="One skill per line" required></textarea><br>
+      <label for="About">About:</label><br>
+      <textarea id="About" name="About" required></textarea><br><br>
+
+      <label for="education_10th">10th Education:</label><br>
+      <textarea id="education_10th" name="education_10th" placeholder="Place&#10;YYYY-YYYY&#10;Percentage"
+        required></textarea><br><br>
+      <label for="education_12th">12th Education:</label><br>
+      <textarea id="education_12th" name="education_12th" placeholder="Place&#10;YYYY-YYYY&#10;Percentage"
+        required></textarea><br><br>
+      <label for="education_current">Current Education:</label><br>
+      <textarea id="education_current" name="education_current"
+        placeholder="Degree&#10;Place&#10;YYYY-YYYY&#10;Percentage" required></textarea><br><br>
+      <label for="lang">Languages:</label><br>
+      <textarea id="lang" name="lang" placeholder="One language per line" required></textarea><br><br>
+
+      <!-- Certification section -->
+      <label for="Certifications">Certifications:</label><br>
+      <div id="certifications-container">
+        <textarea class="certification-input" placeholder="Name&#10;Place&#10;Where" required></textarea><br><br>
+      </div>
+      <!-- Button to add more certifications -->
+      <button type="button" onclick="addCertifications()">Add Certification</button><br><br>
+
+      <!-- Publications section -->
+      <label for="Publications">Publications:</label><br>
+      <div id="publications-container">
+        <textarea class="publication-input" placeholder="Publication Name&#10;Date&#10;Where"
+          required></textarea><br><br>
+      </div>
+      <!-- Button to add more publications -->
+      <button type="button" onclick="addPublications()">Add Publication</button><br><br>
+
+      <label for="image">Upload Image:</label>
+      <input type="file" id="image" name="image"><br><br>
+
+      <!-- Internship section -->
+      <label for="Internships">Internships:</label><br>
+      <div id="internships-container">
+        <textarea class="internship-input" placeholder="Company&#10;Position&#10;Duration&#10;Location"
+          required></textarea><br><br>
+      </div>
+      <!-- Button to add more internships -->
+      <button type="button" onclick="addInternships()">Add Internship</button><br><br>
+
+
+
+
+
+      <button type="submit"
+        style="background-color: #1abc9c; color: #fff; padding: 18px 39px; font-size: 18px; border: none; border-radius: 4px; cursor: pointer;">Generate
+        Resume</button>
+    </form>
+  </div>
+
+  <div id="resume"></div>
+  <center>
+    <button id="exportButton"
+      style="background-color: #1abc9c; color: #fff; padding: 18px 39px; font-size: 18px; border: none; border-radius: 4px; cursor: pointer;">Export
+      to PDF</button>
+  </center>
+  <script>
+    // Function to add more certification input fields
+    function addCertifications() {
+      var certificationsContainer = document.getElementById("certifications-container");
+
+      // Create a new certification div
+      var newCertificationDiv = document.createElement("div");
+
+      // Add input fields
+      newCertificationDiv.innerHTML = `
+        <textarea class="certification-input" placeholder="Name&#10;Place&#10;Where" required></textarea><br><br>`;
+
+      // Append the new certification div to the container
+      certificationsContainer.appendChild(newCertificationDiv);
+    }
+    function addPublications() {
+      var publicationsContainer = document.getElementById("publications-container");
+
+      // Create a new publication div
+      var newPublicationDiv = document.createElement("div");
+
+      // Add input fields
+      newPublicationDiv.innerHTML = `
+    <textarea class="publication-input" placeholder="Publication Name&#10;Date&#10;Where" required></textarea><br><br>`;
+
+      // Append the new publication div to the container
+      publicationsContainer.appendChild(newPublicationDiv);
+    }
+
+    // Function to add more publication input fields
+    function addInternships() {
+      var internshipsContainer = document.getElementById("internships-container");
+
+      // Create a new internship div
+      var newInternshipDiv = document.createElement("div");
+
+      // Add input fields
+      newInternshipDiv.innerHTML = `
+    <textarea class="internship-input" placeholder="Company&#10;Position&#10;Duration&#10;Location" required></textarea><br><br>`;
+
+      // Append the new internship div to the container
+      internshipsContainer.appendChild(newInternshipDiv);
+    }
+
+
+    // Function to export HTML to PDF
+    function exportHTMLtoPDF() {
+      let htmlElement = document.getElementById('resume');
+      html2pdf().from(htmlElement).save('exported_file.pdf');
+    }
+
+    document.getElementById('exportButton').addEventListener('click', exportHTMLtoPDF);
+  </script>
+</body>
+
+</html>
